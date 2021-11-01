@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://demo-sql-server-1.database.windows.net:1433;database=demodb;user=saadmin@demo-sql-server-1;password=Root@123;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      dialect : org.hibernate.dialect.SQLServer2012Dialect
+      naming:        implicit-strategy : org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+
+server:
+  port: 8081
+
