@@ -20,26 +20,26 @@ public class ParkingManagementController {
 	@Autowired
 	private ParkingRepo repo;
 
-	@CrossOrigin(origins = "http://localhost:8080")
+	@CrossOrigin(origins = {"http://localhost:8080", "https://parking-management-ui.herokuapp.com"})
 	@PostMapping("/parking")
 	public Parking addParking(@RequestBody Parking parking) {
 		parking.setIsActive("Active"); 
 		return repo.save(parking);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:8080")	
+	@CrossOrigin(origins = {"http://localhost:8080", "https://parking-management-ui.herokuapp.com"})
 	@GetMapping("/parkings")
 	public List<Parking> getAllParking() {
 		return repo.findOpenParking();
 	}
 	
-	@CrossOrigin(origins = "http://localhost:8080")	
+	@CrossOrigin(origins = {"http://localhost:8080", "https://parking-management-ui.herokuapp.com"})
 	@GetMapping("/vehicle")
 	public List<Parking> getVehicle(@RequestParam final String term) {
 		return repo.findDocumentsForListing(term);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:8080")	
+	@CrossOrigin(origins = {"http://localhost:8080", "https://parking-management-ui.herokuapp.com"})
 	@PostMapping("/updateParking")
 	public Parking updateParking(@RequestBody Parking parking) { 
 		//int repo.findDocumentsForUpdate(parking.getParkingId(), parking.getTotalHours(), parking.getClosingTime(), parking.getIsActive());
